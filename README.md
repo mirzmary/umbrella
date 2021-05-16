@@ -73,9 +73,17 @@ The API returns the statistics of average temperature and air pressure for the c
 The data for the history endpoint is fetched from the cache, which is filled every time when the current weather API is called for a city.
 There is a possibility to use the history API provided by the weather API itself, which was intended to be used initially by me, but which appeared to be only available for the paid version.
 So the data is saved in the cache on each current weather call (initially normalizing the city name for the key) and is fetched from the cache per city name on each history call.
+For the cache the EhCache implementation is used.
 
 In case, there was no data requested for the city, the API responds with NO_
 
 ## Testing
-No tests are available
+Some simple unit tests were added for the WeatherForecastService just as an example.
+No good unit test coverage due to the time constraints.
+No functional, integration tests were added due to the time constraints.
 
+## CI/CD
+For the CI/CD we would have used Terraform, to have infrastructure as code, to be able to track it and change easily.
+For the deployment in the multi-environment case, we would have multiple .tf terraform files with the environment name, and each would have kept the corresponding to the environment values for the variables.
+In the real world example, we would also have veriable.tf, where we would keep all the variable declarations, as well as a main.tf file, which would bind the config values necessary for the normal deployment to the variables.
+We would also need a Jenkinsfile (in case of deploying to Jenkins) for defining the build necessary parameters, e.g. java version...

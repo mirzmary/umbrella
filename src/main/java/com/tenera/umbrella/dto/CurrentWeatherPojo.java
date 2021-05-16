@@ -1,6 +1,7 @@
 package com.tenera.umbrella.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(toBuilder = true)
 public class CurrentWeatherPojo {
 
     public Coord coord;
@@ -36,6 +38,7 @@ public class CurrentWeatherPojo {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
+    @Builder(toBuilder = true)
     public static class Weather{
         public int id;
         public String main;
@@ -46,6 +49,7 @@ public class CurrentWeatherPojo {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
+    @Builder(toBuilder = true)
     public static class Main{
         public double temp;
         public double feels_like;
