@@ -15,6 +15,5 @@ public class CurrentWeatherResponseModel {
     private BigDecimal temperature;
     @NonNull
     private Integer airPressure;
-    @NonNull
     private boolean umbrellaNeeded;
 }
